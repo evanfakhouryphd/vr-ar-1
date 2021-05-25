@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/0.7.1/aframe.min.js"></script>
+  <script src="https://codechangers.com/physics.js"></script>
+  <script src="https://unpkg.com/aframe-event-set-component@4.0.0/dist/aframe-event-set-component.min.js"></script>
+</head>
+
+<body>
+  <a-scene id="myScene">
+    <a-plane id="floor" static-body height="1000" width="1000" position="0 -0.02 0" color="black" rotation="-90 0 0">
+    </a-plane>
+    <a-camera id="myCamera" position="0 1 0">
+      <a-cursor intersection-spawn="event: click; mixin: voxel"></a-cursor>
+    </a-camera>
+
+    <a-sky id="sky" src="https://raw.githubusercontent.com/evanfakhouryphd/VR/main/360_2.jpg" color="cyan"></a-sky>
+
+    <a-icosahedron animation="property: rotation; to: 0 1080 0; loop: false; dur: 1000"
+      event-set__enter="_event: mouseenter; _target: #target1; visible: false"
+      event-set__leave2="_event: mouseleave; _target: #target1; visible: true"
+      event-set__leave="_event: mouseleave; _target: #sky; color: white" 
+      event-set__enter2="_event: mouseenter; _target: #sky; color: green"
+      event-set__click="_event: click; _target: #sky; src: https://raw.githubusercontent.com/evanfakhouryphd/VR/main/360_1.jpg"
+      static-body class="target" color="red"
+      radius="1" position="-2 3 -5"></a-icosahedron>
+
+    <a-text id="text" value="Welcome to my VR world!" position="-4 6 -6" color="black" scale="3 3 3"></a-text>
+
+    <a-icosahedron 
+    id="target1" 
+    static-body 
+    class="target" 
+    color="white" 
+    radius="1" 
+    position="2 3 -5">
+    </a-icosahedron>
+  
+  </a-scene>
+</body>
+
+<script src="https://codechangers.com/camps2019/vr/shoot-partial.js"></script>
+<script src="script.js"></script>
+<script>
+  nextLevel = 'level2.html';
+</script>
+
+</html>
