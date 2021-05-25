@@ -17,7 +17,8 @@
 
     <a-sky id="sky" src="https://raw.githubusercontent.com/evanfakhouryphd/VR/main/360_2.jpg" color="cyan"></a-sky>
 
-    <a-icosahedron animation="property: rotation; to: 0 1080 0; loop: false; dur: 1000"
+    <a-icosahedron 
+      animation="property: rotation; to: 1080 1080 1080; loop: true; dur: 2000"
       event-set__enter="_event: mouseenter; _target: #target1; visible: false"
       event-set__leave2="_event: mouseleave; _target: #target1; visible: true"
       event-set__leave="_event: mouseleave; _target: #sky; color: white" 
